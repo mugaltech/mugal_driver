@@ -1,6 +1,9 @@
 # mugal_driver
 Device drivers for MugalTech products.
 
+[![build add publish to PyPI](https://github.com/mugaltech/mugal_driver/actions/workflows/publish-to-pypi.yml/badge.svg)](https://github.com/mugaltech/mugal_driver/actions/workflows/publish-to-pypi.yml)
+
+
 Including:
 
 1. LNR signal generator

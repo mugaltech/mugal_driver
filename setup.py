@@ -22,7 +22,7 @@ setup(
     classifiers=[
         'Development Status :: 3 - Alpha',
         'Intended Audience :: Developers',
-        'Topic :: SYSTEM :: HARDWARE :: HARDWARE DRIVERS',
+        'Topic :: System :: Hardware :: Hardware Drivers',
         'License :: OSI Approved :: MIT License',
         'Programming Language :: Python :: 3',
         'Programming Language :: Python :: 3.6',

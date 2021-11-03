@@ -1,6 +1,6 @@
 # %%
 from mugal_driver import low_noise_reference as lnr
-from  functools import reduce
+
 # %%
 lnr1 = lnr.LNR('COM1')
 

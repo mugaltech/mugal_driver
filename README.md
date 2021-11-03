@@ -26,7 +26,7 @@ create LNR object and a few segments
 lnr1 = lnr.LNR('COM1')
 seg1 = lnr.LNR_Segment(mode=0,freq_start=80E6,duration=0.0)
 seg2 = lnr.LNR_Segment(mode=1,freq_start=80E6,df=1.0E4,dt=1E-3,duration=2E-3)
-lnr1 = [seg1, seg2]
+lnr1.segs = [seg1, seg2]
 ```
 send command
 ```python

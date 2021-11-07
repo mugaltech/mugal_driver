@@ -9,6 +9,22 @@ Including:
 1. LNR signal generator
 2. ...
 
+## How to install
+Install from [PYPI](https://pypi.org/project/mugal-driver/)
+```shell
+pip install mugal-driver
+```
+
+Install from source 
+
+1. Git clone or download source code
+2. install using pip from source:
+
+```shell
+pip install -e <source path>
+```
+
+
 ## Low noise reference signal generator
 
 A low noise reference signal generator can operate in segments of mode, each with a duration of about 655ms. Each segment can be a single point mode or frequency sweep mode. 

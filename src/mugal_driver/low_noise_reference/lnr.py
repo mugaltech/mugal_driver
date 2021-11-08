@@ -4,10 +4,10 @@ import struct
 from  functools import reduce
 import libscrc
 
-# Comand header byte
+# Command header byte
 CMD_HEAD = b'\xAA'
 
-# Comand tail byte
+# Command tail byte
 CMD_TAIL = b'\x55'
 
 # DDS reference frequency

@@ -6,8 +6,9 @@ Device drivers for MugalTech products.
 
 Including:
 
-1. LNR signal generator
-2. ...
+1. LNR: Low noise reference signal generator
+2. AOD: Acousto-Optic Modulator driver
+3. ...
 
 ## How to install
 Install from [PYPI](https://pypi.org/project/mugal-driver/)
@@ -23,7 +24,6 @@ Install from source
 ```shell
 pip install -e <source path>
 ```
-
 
 ## Low noise reference signal generator
 
@@ -55,3 +55,36 @@ close device after use
 ```python
 lnr1.close()
 ```
+
+## Acousto-Optic Modulator driver
+
+Dual channal Acousto-Optic Modulator driver. frequency 50MHz-200MHz
+Each channel operate in segments of frequencies, output RF power or OnOff state. Use segs1 for CH1, segs2 for CH2.
+
+> &#9888; **warning: onoff==0 stand for ON**
+
+``` python
+from mugal_driver import AOM_driver as aod
+import copy
+
+aod1 = aod.AOD('COM1')
+print(aod1.identifier)
+
+seg1 = aod.AOD_Segment(freq=80.0E6, set_power=1.2, duration=0.0, onoff=0)
+seg2 = aod.AOD_Segment(freq=86.0E6, set_power=1.2, duration=0.04, onoff=0)
+seg3 = aod.AOD_Segment(freq=86.0E6, set_power=1.2, duration=0.04, onoff=1)
+seg4 = aod.AOD_Segment(freq=86.0E6, set_power=1.0, duration=0.10, onoff=0)
+seg5 = aod.AOD_Segment(freq=106.0E6, set_power=0.9, duration=0.04, onoff=0)
+
+aod1.segs1 = [seg1, seg2, seg3, seg4,seg5]
+buffer = aod1.send_ch1()
+print(','.join(['{:02X}'.format(b) for b in buffer]))
+
+aod1.segs2 = copy.deepcopy(aod1.segs1)
+aod1.segs2[1].freq=82.0E6
+buffer = aod1.send_ch2()
+print(','.join(['{:02X}'.format(b) for b in buffer]))
+
+aod1.close()
+```
+
